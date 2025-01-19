@@ -4,12 +4,14 @@ interface StoreDescriptionProps {
   storeName: string;
   // rating: number;
   description: string;
+  instagram: string;
 }
 
 export default function StoreDescription({
   storeName,
   // rating,
   description,
+  instagram,
 }: StoreDescriptionProps) {
   return (
     <div className="flex flex-col items-center lg:items-start gap-4 w-full lg:w-2/5">
@@ -41,9 +43,11 @@ export default function StoreDescription({
             {description}
           </p>
         </div>
-        <MainButton className="w-fit text-xs sm:text-sm">
-          Lihat di Instagram
-        </MainButton>
+        <a href={`https://instagram.com/${instagram}`}>
+          <MainButton className="w-fit text-xs sm:text-sm">
+            Lihat di Instagram
+          </MainButton>
+        </a>
       </div>
     </div>
   );

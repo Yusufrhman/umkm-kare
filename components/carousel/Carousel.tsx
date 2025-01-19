@@ -29,7 +29,9 @@ export default function Carousel({ items, className }: { items: Item[], classNam
   };
 
   return (
-    <div className={`w-full h-full rounded-t-xl overflow-clip relative ${className}`}>
+    <div
+      className={`w-full h-full rounded-t-xl overflow-clip relative ${className}`}
+    >
       <motion.div
         key={currentIndex}
         initial={{ opacity: 0, y: -50 }}
@@ -45,16 +47,19 @@ export default function Carousel({ items, className }: { items: Item[], classNam
           layout="fill"
         />
       </motion.div>
-      <motion.h2
-        key={items[currentIndex].title}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.5 }}
-        className="absolute left-0 bottom-0 font-semibold tracking-wider leading-[1rem] lg:leading-[2rem] xl:leading-[3.5rem] text-lg sm:text-xl md:text-3xl xl:text-5xl text-white z-30 p-6 md:p-8 xl:p-10 w-full md:w-1/2  overflow-hidden line-clamp-2 md:line-clamp-3"
-      >
-        {items[currentIndex].title}
-      </motion.h2>
+      <div className="absolute left-0 bottom-0 z-30 p-6 md:p-8 xl:p-10 w-full md:w-1/2  ">
+        <motion.h2
+          key={items[currentIndex].title}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.5 }}
+          className="font-semibold tracking-wider leading-[1rem] lg:leading-[2rem] xl:leading-[3rem] text-lg sm:text-xl md:text-3xl xl:text-4xl text-white line-clamp-2 md:line-clamp-3 overflow-hidden"
+        >
+          {items[currentIndex].title}
+        </motion.h2>
+      </div>
+
       <div className="absolute right-0 bottom-0 px-20 py-10 z-30  gap-6 items-center justify-center hidden md:flex">
         <ArrowButton direction="left" onClick={prevItem} />
         <ArrowButton onClick={nextItem} />

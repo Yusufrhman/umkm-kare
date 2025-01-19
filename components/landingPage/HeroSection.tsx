@@ -12,18 +12,19 @@ const dummyItems = [
     image: CAROUSEL,
   },
   {
-    title: "lorem ipsum",
+    title: "Pentingnya Pemberdayaan UMKM dalam Mendorong Ekonomi Lokal",
     image: CAROUSEL,
   },
   {
-    title: "loremmm iokasnksk",
+    title: "Inovasi Produk UMKM Desa yang Membanggakan",
     image: CAROUSEL,
   },
   {
-    title: " nasjknsajkn naksdnkdasn kask ksnadkds",
+    title: "Meningkatkan Potensi UMKM Desa Melalui Teknologi dan Kolaborasi",
     image: CAROUSEL,
   },
 ];
+
 export default function HeroSection() {
   return (
     <>
