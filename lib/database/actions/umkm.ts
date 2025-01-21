@@ -1,17 +1,27 @@
 import db from "@/lib/database/db";
+import { cache } from "react";
+import { unstable_cache as nextCache } from "next/cache";
 
-export async function getAllUMKM(limit?: number) {
-  let query = `
+export const getAllUMKM = nextCache(
+  cache(async function getAllUMKM(limit?: number) {
+    let query = `
     SELECT * FROM umkms
-    ORDER BY created_at desc`;
+    ORDER BY created_at DESC`;
 
-  if (limit) {
-    query += ` LIMIT ${limit}`;
-  }
+    if (limit) {
+      query += ` LIMIT ${limit}`;
+    }
 
-  const umkms = await db.query(query);
-  return umkms[0] as [];
-}
+    try {
+      const umkms = await db.query(query, { cache: "no-store" });
+      return umkms[0] as [];
+    } catch (error) {
+      throw new Error("Failed to fetch UMKM data");
+    }
+  }),
+  ["umkms"],
+  { revalidate: 5 }
+);
 
 export async function getUMKMbyId(id: string) {
   const query = `

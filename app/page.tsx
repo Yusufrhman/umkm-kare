@@ -3,17 +3,13 @@ import HeroSection from "@/components/landingPage/HeroSection";
 import HighlightSection from "@/components/landingPage/HighlightSection";
 import H3 from "@/components/title/H3";
 
-import MADU from "@/public/dev/madu.png";
-import StoreCard from "@/components/cards/StoreCard";
 import MainButton from "@/components/button/MainButton";
 
 import GALERI from "@/public/dev/galeri.png";
 import GaleryCard from "@/components/cards/GaleryCard";
-import { getAllUMKM } from "@/lib/database/actions/umkm";
-import Link from "next/link";
+import UMKMList from "@/components/landingPage/UmkmList";
 
 export default async function LandingPage() {
-  const umkms = await getAllUMKM(6);
   return (
     <main>
       <HeroSection />
@@ -23,24 +19,7 @@ export default async function LandingPage() {
           Eksplorasi Produk Terbaru dari UMKM Kare
         </H3>
         <div className="overflow-scroll">
-          <ul className="flex sm:grid place-items-start sm:justify-self-center sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 my-8 md:mx-8">
-            {umkms.map((data: any, index: any) => {
-              return (
-                <li
-                  className="w-full h-full min-w-[17.5rem] max-w-[20rem] md:max-w-[24rem] lg:max-w-[28rem]"
-                  key={index}
-                >
-                  <Link href={`/umkm/${data.id as string}`}>
-                    <StoreCard
-                      imageSrc={`${process.env.ADMIN_URL}storage/${data.main_image}`}
-                      title={data.umkm_name}
-                      description={data.description}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <UMKMList />
         </div>
       </section>
 

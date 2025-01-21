@@ -15,7 +15,7 @@ export default function Header() {
           </NavLink>
         </li>
         <li className="hidden md:block">
-          <NavLink href={"/"} className="text-white text-md font-thin">
+          <NavLink href={"/produk"} className="text-white text-md font-thin">
             Produk
           </NavLink>
         </li>
@@ -28,13 +28,13 @@ export default function Header() {
           </Link>
         </li>
         <li className="hidden md:block">
-          <NavLink href={"/"} className="text-white text-md font-thin">
+          <NavLink href={"/tentang"} className="text-white text-md font-thin">
             Tentang
           </NavLink>
         </li>
         <li className="hidden md:block">
-          <NavLink href={"/"} className="text-white text-md font-thin">
-            Kontak
+          <NavLink href={"/umkm"} className="text-white text-md font-thin">
+            UMKM
           </NavLink>
         </li>
         <li>

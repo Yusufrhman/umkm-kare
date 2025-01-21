@@ -43,7 +43,7 @@ export default function StoreDescription({
             {description}
           </p>
         </div>
-        <a href={`https://instagram.com/${instagram}`}>
+        <a href={`https://instagram.com/${instagram}`} target="_blank">
           <MainButton className="w-fit text-xs sm:text-sm">
             Lihat di Instagram
           </MainButton>

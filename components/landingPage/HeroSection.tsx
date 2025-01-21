@@ -28,7 +28,7 @@ const dummyItems = [
 export default function HeroSection() {
   return (
     <>
-      <div className="aspect-video max-h-[30rem] w-full">
+      <div className="aspect-video md:aspect-auto md:h-[30rem] w-full">
         <Carousel items={dummyItems} className="" />
       </div>
       <div className="w-full h-fit px-4 py-3 sm:p-4 md:px-8 md:py-8 bg-gradient-to-r from-custom-dark-green via-custom-dark-green to-custom-olive-green my-5 rounded-b-xl flex flex-col sm:flex-row items-center justify-start">

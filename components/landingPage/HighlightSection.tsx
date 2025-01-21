@@ -6,8 +6,8 @@ import H3 from "../title/H3";
 
 export default function HighlightSection() {
   return (
-    <section className="my-10 gap-4 sm:gap-8  md:gap-16 mx-0 sm:mx-4 md:mx-10 h-fit flex flex-col lg:flex-row items-start justify-center">
-      <div className="flex flex-col justify-normal lg:justify-between lg:w-[55%] lg:h-[25rem] 2xl:h-[27.5rem]">
+    <section className="my-10 gap-4 sm:gap-8  md:gap-16 mx-0 sm:mx-4 md:mx-10 h-fit flex flex-col lg:flex-row items-center justify-center">
+      <div className="flex flex-col justify-normal lg:justify-between  lg:w-[55%] lg:h-[25rem] 2xl:h-[27.5rem]">
         <div>
           <H3>UMKM Desa Kare, Menyajikan Produk Lokal yang Berbeda</H3>
           <p className="text-sm lg:text-base text-black tracking-widest text-justify mt-3">

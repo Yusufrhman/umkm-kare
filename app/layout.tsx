@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`mx-4 md:mx-6 lg:mx-8 xl:mx-12 font-Figtree`}>
+      <body
+        className={`mx-4 md:mx-6 lg:mx-8 xl:mx-12 font-Figtree `}
+      >
         <NextTopLoader color="#6c7a3f" />
         <Header />
         {children}

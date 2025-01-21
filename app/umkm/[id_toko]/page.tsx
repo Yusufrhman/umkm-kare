@@ -36,7 +36,6 @@ export default async function StorePage({ params }: { params: paramsType }) {
   const { id_toko } = await params;
 
   const umkmData = await getUMKMbyId(id_toko);
-  console.log(umkmData)
 
   if (!umkmData || umkmData.length < 1) {
     notFound();

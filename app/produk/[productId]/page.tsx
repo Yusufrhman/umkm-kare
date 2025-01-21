@@ -1,13 +1,11 @@
 "use server";
-import STOREBANNER from "@/public/dev/store-banner.png";
 import H3 from "@/components/title/H3";
-import Link from "next/link";
-import ProductCard from "@/components/product/ProductCard";
 
 import ProductImageGallery from "@/components/product/ProductImageGallery";
 import MainButton from "@/components/button/MainButton";
 import { getProductById } from "@/lib/database/actions/product";
 import { notFound } from "next/navigation";
+import AnotherStoreProducts from "@/components/productPage/AnotherStoreProducts";
 
 export type paramsType = Promise<{ productId: string }>;
 
@@ -17,7 +15,6 @@ export default async function ProductPage({ params }: { params: paramsType }) {
   if (!product) {
     notFound();
   }
-  console.log(product);
   return (
     <main key={productId} className="min-h-[100vh] space-y-10 ">
       <section className="flex flex-col lg:flex-row gap-6 md:gap-6 lg:gap-10 xl:gap-14 h-fit sm:mx-8 md:mx-25 xl:mx-20 justify-center">
@@ -52,21 +49,9 @@ export default async function ProductPage({ params }: { params: paramsType }) {
         <H3 className=" text-[1.5rem] xl:text-2xl">
           Produk Lain dari Toko ini
         </H3>
-        <ul className="flex gap-4 overflow-scroll">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <li key={i} className="min-w-[12.5rem] w-full tracking-wide">
-              <Link href={`/toko/product`}>
-                <ProductCard
-                  imageSrc={STOREBANNER.src}
-                  name={"product"}
-                  price={150000}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <AnotherStoreProducts umkmId={product.umkm_id} />
       </section>
-      <section className="space-y-5 mx-0 sm:mx-5 md:mx-10 lg:mx-20">
+      {/* <section className="space-y-5 mx-0 sm:mx-5 md:mx-10 lg:mx-20">
         <H3 className=" text-xl  xl:text-2xl">Produk Terkait</H3>
         <ul className="flex gap-4 overflow-scroll">
           {Array.from({ length: 4 }).map((_, i) => (
@@ -81,7 +66,7 @@ export default async function ProductPage({ params }: { params: paramsType }) {
             </li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </main>
   );
 }
